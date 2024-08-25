@@ -1,0 +1,439 @@
+[gd_scene load_steps=36 format=3 uid="uid://bpjl7d26rtrf2"]
+
+[ext_resource type="Texture2D" uid="uid://bft8m2ms4q85k" path="res://icon.svg" id="1_skxgd"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_t3nfo"]
+[ext_resource type="Texture2D" uid="uid://dwikvdgq8m7eb" path="res://images/carro.png" id="2_mg86u"]
+[ext_resource type="Texture2D" uid="uid://bw83bl32cn2uq" path="res://images/moto.png" id="3_1f836"]
+[ext_resource type="Texture2D" uid="uid://gev2m0sj23rf" path="res://images/quadrado.png" id="4_t8cx6"]
+[ext_resource type="Texture2D" uid="uid://dlmyv3vvi3gyi" path="res://images/olho.jpg" id="5_xsrx7"]
+[ext_resource type="Texture2D" uid="uid://pvdj40twec7s" path="res://images/feliz.png" id="6_oy1og"]
+[ext_resource type="Texture2D" uid="uid://disbw6c3id8mm" path="res://images/inteligente.png" id="7_rw81m"]
+[ext_resource type="Texture2D" uid="uid://dvunxbf8wwulv" path="res://images/pulmao.png" id="8_rmooa"]
+[ext_resource type="Texture2D" uid="uid://cma00sk1co6y5" path="res://images/mulher.png" id="9_gwddu"]
+[ext_resource type="FontFile" uid="uid://b3uwh3maa01i0" path="res://fonts/Beholden-Medium.ttf" id="10_1uu45"]
+[ext_resource type="Shader" path="res://shaders/ui/menu_bg.gdshader" id="11_5yi2r"]
+[ext_resource type="FontFile" uid="uid://1nugb0s7657g" path="res://fonts/Beholden-Bold.ttf" id="12_0m56i"]
+[ext_resource type="Shader" path="res://shaders/ui/outline.gdshader" id="13_14ff8"]
+[ext_resource type="Script" path="res://scripts/sfx.gd" id="15_s5ity"]
+[ext_resource type="AudioStream" uid="uid://dqex5f6iq5gdh" path="res://sounds/clock ticking.mp3" id="16_61bjw"]
+[ext_resource type="AudioStream" uid="uid://8ndm603ua1s7" path="res://addons/kenney_ui_audio/click2.wav" id="16_n5mih"]
+[ext_resource type="AudioStream" uid="uid://c1n3urip6mjq" path="res://sounds/congratulations.mp3" id="17_syjwg"]
+[ext_resource type="AudioStream" uid="uid://g1rfem3wmm50" path="res://addons/kenney_ui_audio/click1.wav" id="17_xpclj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_blsbo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spngf"]
+bg_color = Color(0.0776288, 0.0776288, 0.0776288, 0.180392)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_d37xo"]
+default_font = ExtResource("10_1uu45")
+Button/styles/focus = SubResource("StyleBoxEmpty_blsbo")
+Button/styles/normal = SubResource("StyleBoxFlat_spngf")
+TextEdit/font_sizes/font_size = 32
+TextEdit/fonts/font = ExtResource("10_1uu45")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h1r8o"]
+shader = ExtResource("11_5yi2r")
+shader_parameter/cell_size = 8.0
+shader_parameter/dot_size = 0.22
+shader_parameter/background_color = Color(0.1176, 0.1176, 0.1176, 1)
+shader_parameter/dot_color = Color(0.2156, 0.2156, 0.2156, 1)
+shader_parameter/resolution = Vector2(0, 0)
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/anti_aliasing_factor = 0.01
+shader_parameter/stochastic_samples = 16
+shader_parameter/animation_speed = 10.0
+shader_parameter/step_quantity = 0.5
+
+[sub_resource type="LabelSettings" id="LabelSettings_v0add"]
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_rnw0u"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_fqh7f"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_kxba0"]
+font_size = 200
+
+[sub_resource type="LabelSettings" id="LabelSettings_4bwfv"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_ajrg6"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_xrg3f"]
+font = ExtResource("12_0m56i")
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_4btsi"]
+font = ExtResource("12_0m56i")
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_pdah8"]
+font = ExtResource("12_0m56i")
+font_size = 35
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gfq2i"]
+shader = ExtResource("13_14ff8")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 2.0
+shader_parameter/pattern = 2
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_g2wui"]
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_vnlds"]
+font_size = 25
+
+[node name="Game" type="Node" node_paths=PackedStringArray("images_buttons")]
+script = ExtResource("1_t3nfo")
+images = {
+"carro": ExtResource("2_mg86u"),
+"feliz": ExtResource("6_oy1og"),
+"inteligente": ExtResource("7_rw81m"),
+"moto": ExtResource("3_1f836"),
+"mulher": ExtResource("9_gwddu"),
+"olho": ExtResource("5_xsrx7"),
+"pulmão": ExtResource("8_rmooa"),
+"quadrado": ExtResource("4_t8cx6")
+}
+images_buttons = [NodePath("UI/PanelContainer/MarginContainer/GameContainer/Images/A"), NodePath("UI/PanelContainer/MarginContainer/GameContainer/Images/B"), NodePath("UI/PanelContainer/MarginContainer/GameContainer/Images/C")]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_d37xo")
+
+[node name="PanelContainer" type="PanelContainer" parent="UI"]
+material = SubResource("ShaderMaterial_h1r8o")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="MenuContainer" type="VBoxContainer" parent="UI/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/PanelContainer/MarginContainer/MenuContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="UI/PanelContainer/MarginContainer/MenuContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "PALAVRA - IMAGEM"
+label_settings = SubResource("LabelSettings_v0add")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Highscore" type="RichTextLabel" parent="UI/PanelContainer/MarginContainer/MenuContainer/VBoxContainer2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[shake freq=5.0]HIGHSCORE: 0[/shake]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PanelContainer/MarginContainer/MenuContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Play" type="Button" parent="UI/PanelContainer/MarginContainer/MenuContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Jogar"
+
+[node name="Quit" type="Button" parent="UI/PanelContainer/MarginContainer/MenuContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Sair"
+
+[node name="ExplainContainer" type="VBoxContainer" parent="UI/PanelContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/PanelContainer/MarginContainer/ExplainContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "COMO JOGAR"
+label_settings = SubResource("LabelSettings_rnw0u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/PanelContainer/MarginContainer/ExplainContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "O jogo é bem simples.
+
+Será mostrado uma palavra e três imagens, uma dessas imagens é referente a essa palavra, já as outras são referentes a outras palavras diferentes.
+
+O objetivo é escolher a palavra referente a imagem e conseguir o maior número de pontos ao final.
+
+ATENÇÃO: A partir de algumas pontuações, o jogo irá ficar mais dificil, cuidado!
+
+Se divirta!"
+label_settings = SubResource("LabelSettings_fqh7f")
+autowrap_mode = 2
+
+[node name="Start" type="Button" parent="UI/PanelContainer/MarginContainer/ExplainContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 30
+text = "Iniciar"
+
+[node name="CountdownContainer" type="VBoxContainer" parent="UI/PanelContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CountdownLabel" type="Label" parent="UI/PanelContainer/MarginContainer/CountdownContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "3"
+label_settings = SubResource("LabelSettings_kxba0")
+
+[node name="Countdown" type="Timer" parent="UI/PanelContainer/MarginContainer/CountdownContainer"]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
+[node name="GameContainer" type="VBoxContainer" parent="UI/PanelContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PanelContainer/MarginContainer/GameContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="UI/PanelContainer/MarginContainer/GameContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "TEMPO RESTANTE"
+label_settings = SubResource("LabelSettings_4bwfv")
+
+[node name="Timer" type="Label" parent="UI/PanelContainer/MarginContainer/GameContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "10.00"
+label_settings = SubResource("LabelSettings_ajrg6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PanelContainer/MarginContainer/GameContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="WordA" type="Label" parent="UI/PanelContainer/MarginContainer/GameContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "PALAVRA"
+label_settings = SubResource("LabelSettings_xrg3f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WordB" type="Label" parent="UI/PanelContainer/MarginContainer/GameContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "PALAVRA"
+label_settings = SubResource("LabelSettings_4btsi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Word" type="Label" parent="UI/PanelContainer/MarginContainer/GameContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "PALAVRA"
+label_settings = SubResource("LabelSettings_pdah8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Word3" type="RichTextLabel" parent="UI/PanelContainer/MarginContainer/GameContainer"]
+visible = false
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("12_0m56i")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "PALAVRA"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Images" type="HBoxContainer" parent="UI/PanelContainer/MarginContainer/GameContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="A" type="TextureButton" parent="UI/PanelContainer/MarginContainer/GameContainer/Images"]
+material = SubResource("ShaderMaterial_gfq2i")
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture_normal = ExtResource("1_skxgd")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="B" type="TextureButton" parent="UI/PanelContainer/MarginContainer/GameContainer/Images"]
+material = SubResource("ShaderMaterial_gfq2i")
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture_normal = ExtResource("1_skxgd")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="C" type="TextureButton" parent="UI/PanelContainer/MarginContainer/GameContainer/Images"]
+material = SubResource("ShaderMaterial_gfq2i")
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture_normal = ExtResource("1_skxgd")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Time" type="Timer" parent="UI/PanelContainer/MarginContainer/GameContainer"]
+unique_name_in_owner = true
+wait_time = 30.0
+one_shot = true
+
+[node name="EndContainer" type="VBoxContainer" parent="UI/PanelContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Title" type="Label" parent="UI/PanelContainer/MarginContainer/EndContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "FIM DE JOGO"
+label_settings = SubResource("LabelSettings_g2wui")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="UI/PanelContainer/MarginContainer/EndContainer"]
+layout_mode = 2
+
+[node name="New" type="RichTextLabel" parent="UI/PanelContainer/MarginContainer/EndContainer"]
+unique_name_in_owner = true
+visible = false
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[wave amp=70.0 freq=5.0][rainbow freq=2.0 sat=0.4 val=0.8]NOVO HIGHSCORE![/rainbow][/wave]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/PanelContainer/MarginContainer/EndContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Score" type="Label" parent="UI/PanelContainer/MarginContainer/EndContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "PONTOS: 0"
+label_settings = SubResource("LabelSettings_vnlds")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rights" type="Label" parent="UI/PanelContainer/MarginContainer/EndContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "ACERTOS: 0"
+label_settings = SubResource("LabelSettings_vnlds")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Errors" type="Label" parent="UI/PanelContainer/MarginContainer/EndContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "ERROS: 0"
+label_settings = SubResource("LabelSettings_vnlds")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="UI/PanelContainer/MarginContainer/EndContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PanelContainer/MarginContainer/EndContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Start" type="Button" parent="UI/PanelContainer/MarginContainer/EndContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Reiniciar"
+
+[node name="Quit" type="Button" parent="UI/PanelContainer/MarginContainer/EndContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Sair"
+
+[node name="SFX" type="Node" parent="."]
+script = ExtResource("15_s5ity")
+ClockTicking = ExtResource("16_61bjw")
+Congratulations = ExtResource("17_syjwg")
+ClickSound = ExtResource("16_n5mih")
+HoverSound = ExtResource("17_xpclj")
+
+[connection signal="pressed" from="UI/PanelContainer/MarginContainer/MenuContainer/VBoxContainer/Play" to="." method="_on_how_pressed"]
+[connection signal="pressed" from="UI/PanelContainer/MarginContainer/MenuContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="UI/PanelContainer/MarginContainer/ExplainContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="timeout" from="UI/PanelContainer/MarginContainer/CountdownContainer/Countdown" to="." method="_on_countdown_timeout"]
+[connection signal="timeout" from="UI/PanelContainer/MarginContainer/GameContainer/Time" to="." method="_on_time_timeout"]
+[connection signal="pressed" from="UI/PanelContainer/MarginContainer/EndContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="UI/PanelContainer/MarginContainer/EndContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
